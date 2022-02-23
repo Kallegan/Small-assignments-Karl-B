@@ -1,20 +1,61 @@
-// Swap.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+
+using namespace std;
+
+int swapReferense(int& A, int& B)
+{
+    int temp = B;
+    B = A;
+    A = temp;
+
+    return A, B;
+}
+
+int swapPointers(int* A, int* B)
+{
+    int temp = *B;
+    *B = *A;
+    *A = temp;
+
+    return *(A, B);
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int A, B, input;
+
+    int* ptrA = &A;
+    int* ptrB = &B;
+
+    cout << "Hello! please input number for A: ";
+    cin >> A;
+    cout << "Input a number for B: ";
+    cin >> B;
+    cout << "Select your prefered method for performing the swap!" << endl;
+    cout << "1. Swap by using STL" << endl;
+    cout << "2. Swap by reference" << endl;
+    cout << "3. Swap by pointers" << endl;
+    cin >> input;
+
+    switch (input)
+    {
+    case 1:
+        swap(A, B);
+        break;
+    case 2:
+        swapReferense(A, B);
+        break;
+    case 3:
+        swapPointers(ptrA, ptrB);
+        break;
+    default:
+        cout << "Invalid input. No swaps performed" << endl;
+        break;
+    }
+
+    if (input > 0 && input < 4)
+        cout << "A value is now: " << A << " and B value is now:  " << B << endl;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
