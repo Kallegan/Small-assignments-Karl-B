@@ -2,34 +2,23 @@
 
 using namespace std;
 
-int main()
+void swap(int items[], size_t lenght) //add & to operate on the actual virable.
 {
-	float num1, num2;
-	char operation;
-	cout << "CACATRON CALC";
-	cin >> num1 >> operation >> num2;
-
-	switch (operation)
+	for (size_t i = 0; i < lenght; i++)
 	{
-	case '-':cout << num1 << operation << num2 << "=" << num1 - num2; break;
-	case '+':cout << num1 << operation << num2 << "=" << num1 + num2; break;
-	case '/':cout << num1 << operation << num2 << "=" << num1 / num2; break;
-	case '*':cout << num1 << operation << num2 << "=" << num1 * num2; break;
-	case 'x':cout << num1 << operation << num2 << "=" << num1 * num2; break;
-	case '%':
-		bool isNum1int, isNum2Int;
-		isNum1int = ((int)num1 == num1);
-		isNum2Int = ((int)num2 == num2);
+		cout << *items++ << "" <<endl; 
+	}	
+}
 
-		if (isNum1int && isNum2Int)
-			cout << num1 << operation << num2 << "%" << (int)num1 % (int)num2;
-		else
-			cout << "Unvalid operation!";
-		break;
+int main()
+{	
+	int numbers[]{1,2,3,4,5};
 
-		default:cout << "Please enter a valid operation!" << endl;
+	int* ptr = numbers;
 
-		system("pause>0");
-	}
+	cout << "Size in main: " << sizeof(numbers) << endl;
 
+	swap(numbers, size(numbers));
+
+	return 0;
 }
